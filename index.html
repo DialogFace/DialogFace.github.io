@@ -14,7 +14,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>EfficientDreamer: High-Fidelity and Robust 3D Creation via Orthogonal-view Diffusion Prior</title>
+    <title>DialogFace: Dialogue-Driven Game Character Facial Customization</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/assets/css/Highlight-Clean.css">
@@ -52,7 +52,7 @@
         </div>
         <div class="container" style="max-width: 1024px;">
            <p id="authors" class="text-center">
-                <a style="font-size:24px; "> Arxiv 2023 </a>
+                <a style="font-size:24px; "> Anonymous Authors </a>
            </p>
 
            
@@ -61,26 +61,24 @@
     </div>
 
     <div class="container" style="max-width: 1024px;">
-        <img class="summary-img" src="figs/teaser_v5.png" style="width:100%;"> <br>
+        <img class="summary-img" src="figs/teaser.png" style="width:100%;"> <br>
     </div>
     
     <hr class="divider" />
     <div class="container" style="max-width: 1024px;">
-        
         
         <div class="row">
             <div class="col-md-12">
                 <h2>Abstract</h2>
                 <p>
                     <!-- <strong> -->
-                        While image diffusion models have made significant progress in text-driven 3D content creation, they often fail to accurately capture the intended meaning of text prompts, especially for view information. This limitation leads to the Janus problem, where multi-faced 3D models are generated under the guidance of such diffusion models. In this paper, we propose a robust high-quality 3D content generation pipeline by exploiting orthogonal-view image guidance. First, we introduce a novel 2D diffusion model that generates an image consisting of four orthogonal-view sub-images based on the given text prompt. Then, the 3D content is created using this diffusion model. Notably, the generated orthogonal-view image provides strong geometric structure priors and thus improves 3D consistency. As a result, it effectively resolves the Janus problem and significantly enhances the quality of 3D content creation. Additionally, we present a 3D synthesis fusion network that can further improve the details of the generated 3D contents. Both quantitative and qualitative evaluations demonstrate that our method surpasses previous text-to-3D techniques. 
-                    <!-- </strong> -->
+                        We introduce DialogFace, a novel method for text-driven facial customization of game characters. Existing text-driven customization systems enable automated character generation but are limited by their one-time generation capability and lack support for iterative editing and fine-tuning, which users require to make further adjustments based on current results to better meet their personalized needs. In this paper, we present an efficient framework that translates multi-round dialogues into continuous facial editing for game characters. Our approach starts by designing a pipeline to generate a game facial editing dataset. Each entry includes an editing prompt, an original facial image, and an edited facial image. We then label the dataset based on human preferences, categorizing samples into winning and losing. Using direct preference optimization, we train a game facial editing diffusion model, called EditPix2Pix-DPO. This model adeptly modifies the original facial image according to the editing prompt, producing edited images that align precisely with semantic descriptions and human preferences. Additionally, this diffusion model can be seamlessly integrated into role-playing game systems, thereby facilitating interactive facial editing of characters. Extensive experimental results demonstrate the efficacy of our proposed method in creating in-game characters and highlight its superior editing performance, particularly in scenarios requiring interactive and iterative facial customization.   
                 </p>
             </div>
         </div>
     <!-- </div> -->
 
-        <img class="summary-img" src="figs/pipeline_v8.png" style="width:100%;"> <br>
+        <img class="summary-img" src="figs/pipeline.png" style="width:100%;"> <br>
 
     </div>
     
@@ -104,317 +102,83 @@
     <div class="container" style="max-width: 1024px;">
         <div class="row">
             <div class="col">
-                <h2>Example generated objects</h2>
-                <p>EfficientDreamer generates objects and scenes from diverse captions.</p>
+                <h2>Example generated 3D game characters</h2>
+
+            </div>
+        </div>
+    
+        <div class="row captioned_videos" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+            <div class="video-container" style="width: 45%; margin-bottom: 20px;">
+                <video class="video lazy" id="ex1" loop playsinline autoplay muted style="width: 100%; height: auto;">
+                    <source src="mp4/output_1.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption" >Round1: An Asian woman, cool feeling.</h6>
+                <h6 class="caption" >Round2: Give her a pair of fairy ears.</h6>
+                <h6 class="caption" >Round3: Make her look a little cuter.</h6>
+                <h6 class="caption" >Round4: Add a smile to her lips and put on purple lipstick.</h6>
+                
+            </div>
+    
+            <div class="video-container" style="width: 45%; margin-bottom: 20px;">
+                <video class="video lazy" id="ex2" loop playsinline autoplay muted style="width: 100%; height: auto;">
+                    <source src="mp4/output_2.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption" >Round1: A cute girl.</h6>
+                <h6 class="caption" >Round2: Make her skin darker.</h6>
+                <h6 class="caption" >Round3: Black lipstick and red pupils.</h6>
+                <h6 class="caption" >Round4: Add a faceprint to her forehead.</h6>
             </div>
         </div>
 
-        <div class="row captioned_videos">
-            <div class="col">
-                <div class="video-compare-container" style="width: 100%">
-                    <video class="video lazy" id="ex1" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
-                        <source src="normals/output_19.mp4" type="video/mp4"></source>
-                    </video>
-                    <canvas height="752" class="videoMerge" id="ex1Merge" width="1002"></canvas>
-                </div>
-                <h6 class="caption">A squirrel, animated movie character, high detail 3d model.</h6>
+        <div class="row captioned_videos" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+            <div class="video-container" style="width: 45%; margin-bottom: 20px;">
+                <video class="video lazy" id="ex1" loop playsinline autoplay muted style="width: 100%; height: auto;">
+                    <source src="mp4/output_3.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption" >Round1: A cool boy.</h6>
+                <h6 class="caption" >Round2: Give him a square face.</h6>
+                <h6 class="caption" >Round3: Darker skin and larger eyes.</h6>
+                <h6 class="caption" >Round4: Add a scar on his face.</h6>
             </div>
-            <div class="col">
-                <div class="video-compare-container" style="width: 100%">
-                    <video class="video lazy" id="ex2" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
-                        <source src="normals/output_10.mp4" type="video/mp4"></source>
-                    </video>
-                    <canvas height="752" class="videoMerge" id="ex2Merge" width="1002"></canvas>
-                </div>
-                <h6 class="caption">A DSLR photo of a yellow duck.</h6>
-            </div>
-            <div class="col">
-                <div class="video-compare-container" style="width: 100%">
-                    <video class="video lazy" id="ex3" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
-                        <source src="normals/output_15.mp4" type="video/mp4"></source>
-                    </video>
-                    <canvas height="752" class="videoMerge" id="ex3Merge" width="1002"></canvas>
-                </div>
-                <h6 class="caption">A pig wearing a backpack, high quality.</h6>
-            </div>
-
-            
-        </div>
-
-        <div class="row captioned_videos">
-            <div class="col">
-                <div class="video-compare-container" style="width: 100%">
-                    <video class="video lazy" id="ex4" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
-                        <source src="normals/output_1.mp4" type="video/mp4"></source>
-                    </video>
-                    <canvas height="752" class="videoMerge" id="ex4Merge" width="1002"></canvas>
-                </div>
-                <h6 class="caption">Viking axe fantasy, weapon, blender, 8k, HD.</h6>
-            </div>
-
-            <div class="col">
-                <div class="video-compare-container" style="width: 100%">
-                    <video class="video lazy" id="ex5" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
-                        <source src="normals/output_6.mp4" type="video/mp4"></source>
-                    </video>
-                    <canvas height="752" class="videoMerge" id="ex5Merge" width="1002"></canvas>
-                </div>
-                <h6 class="caption">Mr Bean Cartoon.</h6>
-            </div>
-
-            <div class="col">
-                <div class="video-compare-container" style="width: 100%">
-                    <video class="video lazy" id="ex6" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
-                        <source src="normals/output_7.mp4" type="video/mp4"></source>
-                    </video>
-                    <canvas height="752" class="videoMerge" id="ex6Merge" width="1002"></canvas>
-                </div>
-                <h6 class="caption">A motorcycle, scifi, high detail, high quality.</h6>
+    
+            <div class="video-container" style="width: 45%; margin-bottom: 20px;">
+                <video class="video lazy" id="ex2" loop playsinline autoplay muted style="width: 100%; height: auto;">
+                    <source src="mp4/output_4.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption" >Round1: A tough guy with white skin.</h6>
+                <h6 class="caption" >Round2: Add some beard.</h6>
+                <h6 class="caption" >Round3: Thinner eyebrows and blue pupils.</h6>
+                <h6 class="caption" >Round4: Add freckles to his face.</h6>
             </div>
         </div>
     </div>
 
-    <!-- <hr class="divider" /> -->
-    <div class="container" style="max-width: 1024px;">
-        <div class="row">
-            <div class="col-sm-8">
-               
-            </div>
-        </div>
-        <div class="row captioned_videos" id="randomVideos">
-        <!-- </div> -->
-    </div>
 
 
     <hr class="divider" />
-
     <div class="container" style="max-width: 1024px;">
         
         <div class="row">
             <div class="col-md-12">
-                <h2>More Results</h2> <br>
+                <h2>Interactive character editing process</h2>
             </div>
         </div>
+        <img class="summary-img" src="figs/more_results3.png" style="width:100%;"> <br>
+
     </div>
 
-    
-
-    <div class="container" style="max-width: 900px;">
-
+    <hr class="divider" />
+    <div class="container" style="max-width: 1024px;">
         <div class="row">
-            <div class="col">
-              <h6 class="text-center">DreamFusion</h6>
+            <div class="col-md-12">
+                <h2>Comparison with different methods (Rendering images).</h2>
             </div>
-            <div class="col">
-              <h6 class="text-center">Magic3D</h6>
-            </div>
-            <div class="col">
-              <h6 class="text-center">TextMesh</h6>
-            </div>
-            <div class="col">
-              <h6 class="text-center">Ours&nbsp;&nbsp;</h6>
-            </div>
-            
-
-          
-          </div>
-        
-
-        <div class="row captioned_videos"></div>
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/squirrel_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A squirrel, animated movie character, high detail 3D model.</em>  </p>
-            
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/pig_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A pig wearing a backpack, high quality.</em>  </p>
-           
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/Bean_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>Mr Bean Cartoon.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/motorcycle_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A motorcycle, scifi.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/guitar_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A squirrel playing guitar.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/ghost_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A ghost eating a hamburger.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/crab_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A crab, low poly.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/Katana_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>Katana, high detail, high quality.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/helmet_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>Darth Vader helmet.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/duck_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A DSLR photo of a yellow duck.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/bike_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A 3D model of a road bike.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/corgi_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A 3D model of a corgi taking a selfie, high detail.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/fox_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A 3D model of a fox holding a videogame controller.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/astronaut_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>An astronaut is riding a horse, high detail 3d model.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/peacock_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A peacock on a surfboard.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/Shepherd_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A 3D model of a German Shepherd.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/cottage_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A 3D model of an adorable cottage with a thatched roof.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/robot_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A 3D model of a toy robot.</em>  </p>
-            
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/exercise_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A 3D model of an exercise bike.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/rabbit_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A 3D model of a white rabbit.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/frog_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A blue poison-dart frog sitting on a water lily, high detail 3D model.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/ladybug_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A ladybug, high detail, high quality.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/puppy_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A DSLR photo of a chow chow puppy, high detail, high quality.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/lion_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A lion reading the newspaper.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/panda_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A panda rowing a boat in a pond, high detail, high quality.</em>  </p>
-
-            
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/tank_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A product photo of a toy tank, high detail 3D model.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/chair_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A recliner chair.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/axe_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>Viking axe fantasy, weapon, blender.</em>  </p>
-            
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/armor_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>Dragon armor, 3D asset.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/horse_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A photo of a horse walking.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/TRUMP_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>TRUMP figure.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/Pikachu_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>Pikachu, high quality.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/Jacket_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>Army Jacket.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/angel_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A statue of angel.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/bulldog_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A bulldog wearing a black pirate hat.</em>  </p>
-
-            <video  width="100%" loop autoplay muted>
-                <source src="mp4/AK47_compare.mp4" type="video/mp4">
-            </video>
-            <p class="text-center"><em>A 3D scan of AK47, weapon.</em>  </p>
-
-
-
         </div>
+        <img class="summary-img" src="figs/more_results1.png" style="width:100%;"> <br>
 
     </div>
-    
-    <div class="content">
-        <p class="text-center">
-            Project page template is borrowed from <a href="https://github.com/dreamfusion3d/dreamfusion3d.github.io">DreamFusion</a>.
-        </p>
-        </div>
 
+    
 
 
     <script src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver"></script>
