@@ -34,7 +34,8 @@
     <div class="highlight-clean" style="padding-bottom: 10px;">
         
         <div class="container" style="max-width: 1024px;">
-            <h1 class="text-center"><b>DialogFace</b>: Dialogue-Driven Game Character Facial Customization</h1>
+            <h1 class="text-center">Interactive Context-Aware Framework for Fine-Grained 
+                3D Character Facial Editing</h1>
         </div>
         <div class="container" style="max-width: 1024px;">
            <p id="authors" class="text-center">
@@ -58,7 +59,8 @@
                 <h2>Abstract</h2>
                 <p>
                     <!-- <strong> -->
-                        We introduce DialogFace, a novel method for text-driven facial customization of game characters. Existing text-driven customization systems enable automated character generation but are limited by their one-time generation capability and lack support for iterative editing and fine-tuning, which users require to make further adjustments based on current results to better meet their personalized needs. In this paper, we present an efficient framework that translates multi-round dialogues into continuous facial editing for game characters. Our approach starts by designing a pipeline to generate a game facial editing dataset. Each entry includes an editing prompt, an original facial image, and an edited facial image. We then label the dataset based on human preferences, categorizing samples into winning and losing. Using direct preference optimization, we train a game facial editing diffusion model, called EditPix2Pix-DPO. This model adeptly modifies the original facial image according to the editing prompt, producing edited images that align precisely with semantic descriptions and human preferences. Additionally, this diffusion model can be seamlessly integrated into role-playing game systems, thereby facilitating interactive facial editing of characters. Extensive experimental results demonstrate the efficacy of our proposed method in creating in-game characters and highlight its superior editing performance, particularly in scenarios requiring interactive and iterative facial customization.   
+                        Text-guided 3D in-game character auto-customization is effective in simplifying the complex process of adjusting numerous character control parameters. However, in dialogue-based editing, existing methods struggle with fine-grained attribute modifications, context-aware editing strength control, and generating results that align with user preferences.
+To address these challenges, we propose a Context-aware Interactive Character Facial Editing Framework that improves both data curation and model design. Specifically, we establish a standardized data curation pipeline that generates image-text pairs with fine-grained correspondence, i.e.,, character attributes and context-aware editing strength. For precise modifications, we introduce the Attribute and Strength Extraction Model (ASEM) to identify target editing parameters and determine adjustment strength based on both historical and current instructions. Additionally, we develop the Fine-grained Character Parameter Editing (FCPE) to ensure controllable and reliable modifications by generating post-edited character parameters from extracted text prompts and editing strength. To achieve user-preference-aware editing, we introduce Direct Preference Optimization (DPO) into our conditional generative model, enabling it to effectively align with user preferences while requiring minimal user feedback data. Extensive experiments validate the superior editing performance of our proposed framework for in-game character customization.  
                 </p>
             </div>
         </div>
@@ -149,7 +151,7 @@
                 <h2>Interactive character editing process (Rendering images)</h2>
             </div>
         </div>
-        <img class="summary-img" src="figs/more_results3.png" style="width:100%;"> <br>
+        <img class="summary-img" src="figs/more_results4.png" style="width:100%;"> <br>
 
     </div>
 
